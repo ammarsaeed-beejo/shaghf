@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Shaghf Jordan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINEARICONS -->
+	<link rel="stylesheet" href="fonts/linearicons/style.css">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- FONTAWESOME 5 -->
+	<link rel="stylesheet" href="fonts/font-awesome-5/css/fontawesome-all.min.css">
+
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+
+	<!-- owl-carousel -->
+	<link rel="stylesheet" href="vendor/owl-carousel/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="vendor/owl-carousel/css/owl.theme.default.min.css">
+
+	<!-- ANIMATE -->
+	<link rel="stylesheet" href="css/animate.css">
+
+	<!-- DATE-PICKER -->
+	<link rel="stylesheet" href="vendor/date-picker/datepicker.min.css">
+
+	<!-- SLIDER REVOLUTION -->
+	<link rel="stylesheet" type="text/css" href="vendor/revolution-slider/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="vendor/revolution-slider/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="vendor/revolution-slider/css/settings.css">
+
+	<!-- SIDENAV MOBILE -->
+	<link rel="stylesheet" href="vendor/hcmobilenav/demo.css">
+
+	<!-- JQUERY TIME PICKER -->
+	<link rel="stylesheet" href="vendor/jquery-timepicker-master/jquery.timepicker.css">
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="./images/logo-3-menu-sidebar.png">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/cart.css">
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
+
+</head>
+
+<body class="preload style-color-3">
+
+	<!-- PAGE LOADER -->
+	<div class="images-preloader">
+		<div id="preloader" class="rectangle-bounce">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+
+	<header>
+		<!-- HEADER ON DESKTOP -->
+		<nav class="navbar-desktop">
+			<div class="left">
+				<a href="index.html" class="logo">
+					<img src="images/logo-3.png" alt="Royate">
+				</a>
+			</div>
+			<ul>
+				<li class="current has-children">
+					<a href="#">
+						Home
+					</a>
+
+				</li>
+
+				<li>
+					<a href="#Menu">
+						Menu
+					</a>
+				</li>
+
+			</ul>
+			<div class="right">
+				<div class="action">
+					<div class="notify">
+
+
+
+						<!-- WIDGET SHOPPING -->
+						<div id="woocommerce_widget_cart-2" class="widget woocommerce widget_shopping_cart" style="text-align: center;">
+							<div class="widget_shopping_cart_content">
+								<ul class="woocommerce-mini-cart cart_list product_list_widget ">
+									<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+										<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+											<span class="lnr lnr-cross-circle"></span>
+										</a>
+										<a href="#" class="image-holder">
+											<img src="images/widget-cart-thumb-1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+											<span class="product-name">Best Brownies</span>
+										</a>
+										<span class="quantity">
+											<span class="woocommerce-Price-amount amount">
+												<span class="woocommerce-Price-currencySymbol">$</span>18
+											</span>
+											x1
+										</span>
+									</li>
+									<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+										<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+											<span class="lnr lnr-cross-circle"></span>
+										</a>
+										<a href="#" class="image-holder">
+											<img src="images/widget-cart-thumb-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+											<span class="product-name">Angela's Awesome</span>
+										</a>
+										<span class="quantity">
+											<span class="woocommerce-Price-amount amount">
+												<span class="woocommerce-Price-currencySymbol">$</span>28
+											</span>
+											x3
+										</span>
+									</li>
+								</ul>
+								<p class="woocommerce-mini-cart__total total">
+									<strong>Subtotal:</strong>
+									<span class="woocommerce-Price-amount amount">
+										<span class="woocommerce-Price-currencySymbol">$</span>102
+									</span>
+								</p>
+								<p class="woocommerce-mini-cart__total total">
+									<strong>Total:</strong>
+									<span class="woocommerce-Price-amount amount color-cdaa7c">
+										<span class="woocommerce-Price-currencySymbol">$</span>102
+									</span>
+								</p>
+								<p class="woocommerce-mini-cart__buttons buttons">
+									<a href="#" class="button wc-forward view-cart">View cart</a>
+									<a href="#" class="button checkout wc-forward">Checkout</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<span class="lnr lnr-magnifier search-icon" data-toggle="modal" data-target="#modalSearch"></span>
+				</div>
+			</div>
+		</nav>
+
+		<!-- HEADER ON MOBILE -->
+
+		<nav class="navbar-mobile">
+			<div class="container">
+				<div class="heading">
+					<!-- <div class="left">
+						<a href="#" class="navbar-mobile__toggler">
+							<span></span>
+							<span></span>
+							<span></span>
+						</a>
+					</div> -->
+					<a href="index.html" class="logo">
+						<img src="images/logo-3.png" alt="Royate">
+					</a>
+					<div class="right">
+						<div class="action">
+							<div class="notify">
+
+
+								<div class="widget woocommerce widget_shopping_cart">
+									<div class="widget_shopping_cart_content">
+										<ul class="woocommerce-mini-cart cart_list product_list_widget ">
+											<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+												<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+													<span class="lnr lnr-cross-circle"></span>
+												</a>
+												<a href="#" class="image-holder">
+													<img src="images/widget-cart-thumb-1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+													<span class="product-name">Best Brownies</span>
+												</a>
+												<span class="quantity">
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>18
+													</span>
+													x1
+												</span>
+											</li>
+											<li class="woocommerce-mini-cart-item mini_cart_item clearfix">
+												<a href="#" class="remove remove_from_cart_button" aria-label="Remove this item">
+													<span class="lnr lnr-cross-circle"></span>
+												</a>
+												<a href="#" class="image-holder">
+													<img src="images/widget-cart-thumb-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+													<span class="product-name">Angela's Awesome</span>
+												</a>
+												<span class="quantity">
+													<span class="woocommerce-Price-amount amount">
+														<span class="woocommerce-Price-currencySymbol">$</span>28
+													</span>
+													x3
+												</span>
+											</li>
+										</ul>
+										<p class="woocommerce-mini-cart__total total">
+											<strong>Subtotal:</strong>
+											<span class="woocommerce-Price-amount amount">
+												<span class="woocommerce-Price-currencySymbol">$</span>102
+											</span>
+										</p>
+										<p class="woocommerce-mini-cart__total total">
+											<strong>Total:</strong>
+											<span class="woocommerce-Price-amount amount color-cdaa7c">
+												<span class="woocommerce-Price-currencySymbol">$</span>102
+											</span>
+										</p>
+										<p class="woocommerce-mini-cart__buttons buttons">
+											<a href="#" class="button wc-forward view-cart">View cart</a>
+											<a href="#" class="button checkout wc-forward">Checkout</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<span class="lnr lnr-magnifier search-icon" data-toggle="modal" data-target="#modalSearch"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav id="main-nav">
+				<ul>
+					<li class="current">
+						<a href="#" target="_blank">Home</a>
+
+					</li>
+
+					<li>
+						<a href="menu.html">
+							Menu
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Reservation
+						</a>
+
+					</li>
+
+
+				</ul>
+			</nav>
+		</nav>
+
+		<!-- MODAL SEARCH -->
+		<div class="modal-search modal" id="modalSearch" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form method="get">
+						<input type="text" placeholder="Search">
+						<button>
+							<span class="lnr lnr-magnifier"></span>
+						</button>
+					</form>
+				</div>
+			</div>
+			<span class="lnr lnr-cross" data-toggle="modal" data-target="#modalSearch"></span>
+		</div>
+
+		<!-- MENU SIDEBAR -->
+		<div class="menu-sidebar">
+			<div class="close-btn">
+				<span class="lnr lnr-cross" id="close-icon"></span>
+			</div>
+			<a href="index.html">
+				<img src="images/logo-3-menu-sidebar.png" alt="">
+			</a>
+			<p class="text">Et harum quidem rerum facilis est et expedita distinctio nam libero.</p>
+			<!-- SLIDER -->
+			<div class="owl-carousel owl-theme image-slider style-1" id="image-carousel">
+				<div class="item">
+					<a href="#">
+						<img src='images/menu-sidebar-slide-1.jpg' alt="">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src='images/menu-sidebar-slide-2.jpg' alt="">
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<img src='images/menu-sidebar-slide-3.jpg' alt="">
+					</a>
+				</div>
+			</div>
+			<!-- CONTACT -->
+			<div class="contact-part">
+				<div class="contact-line">
+					<span class="lnr lnr-home"></span>
+					<span>No 40 Baria Sreet 133/2</span>
+				</div>
+				<div class="contact-line">
+					<a href="tel:+15618003666666">
+						<span class="lnr lnr-phone-handset"></span>
+						<span> + (156) 1800-366-6666</span>
+					</a>
+				</div>
+				<div class="contact-line">
+					<a href="#">
+						<span class="lnr lnr-envelope"></span>
+						<span> Eric-82@example.com</span>
+					</a>
+				</div>
+			</div>
+			<!-- SOCIAL -->
+			<div class="social">
+				<a href="#">
+					<i class="zmdi zmdi-twitter"></i>
+				</a>
+				<a href="#">
+					<i class="zmdi zmdi-facebook-box"></i>
+				</a>
+				<a href="#">
+					<i class="zmdi zmdi-linkedin"></i>
+				</a>
+				<a href="#">
+					<i class="zmdi zmdi-instagram"></i>
+				</a>
+			</div>
+		</div>
+
+	</header>
+
+	<main>
+
+		<!-- SLIDE SHOW -->
+		<div class="rev_slider_wrapper">
+			<div id="rev_slider_13" class="rev_slider" data-version="5.4.5">
+				<ul>
+					<li data-transition="">
+						<img src="images/slideshow-35.jpg" class="rev-slidebg" alt="">
+
+						<div class="tp-caption tp-resizeme"
+							data-frames='[{"delay":600,"speed":1500,"frame":"0","from":"y:-50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"y:-20px;opacity:0;","ease":"Power3.easeInOut"}]'
+							data-x="center" data-y="middle" data-voffset="['49', '36', '43', '0', '0']" data-hoffset="0" data-width="['auto']" data-height="['auto']"
+							data-type="image">
+							<img src="images/coffee-logo.png" alt="" data-ww="['428', '328', '278', '278', '278']" data-hh="['336', '257.49', '218.2', '218.2', '218.2']">
+						</div>
+
+						<div class="rs-background-video-layer" data-forcerewind="on" data-volume="mute" data-videowidth="100%" data-videoheight="100%" data-ytid="_uuqxC8PjAc"
+							data-videoattributes="version=3&enablejsapi=1&html5=1&hd=1&wmode=opaque&showinfo=0&rel=0&
+     						origin=http://www.youtube.com/" data-videopreload="auto" data-videorate="1" data-forceCover="1" data-videoloop="loopandnoslidestop" data-aspectratio="01:9"
+							data-videostartat="00:00" data-videoendat="02:08" data-autoplay="off" data-autoplayonlyfirsttime="true">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<section class="section-primary about-us pt-150 pb-120">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 pr-md-0">
+						<div class="image-holder">
+							<img src="images/about-us-3.jpg" alt="">
+						</div>
+					</div>
+					<div class="col-md-6 pl-md-0">
+						<div class="about-us-col">
+							<div class="section-header">
+								<h2>About us</h2>
+								<span class="fifth-color">~ For more add ~</span>
+							</div>
+							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+								voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+								occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+								mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- OPENING -->
+		<!-- <section class="section-primary pt-150 pb-120">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-4">
+						<div class="post">
+							<div class="post-thumb">
+								<a href="https://www.instagram.com/shaghf.jordan/">
+									<img src="images/post-thumb-15.jpg" alt="">
+								</a>
+							</div>
+							<div class="post-body">
+								<h5>
+									<a href="blog-single.html">
+										شغف الآن في الأردن-عمان
+
+									</a>
+								</h5>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 col-lg-4 mx-auto">
+						<div class="opening-hours">
+							<div class="inner">
+								<h5>Opening hours</h5>
+								<div class="body">
+									<div class="opening-item">
+										<span>Monday</span>
+										<span>8.00-17.00</span>
+									</div>
+									<div class="opening-item">
+										<span>Tuesday</span>
+										<span>8.00-17.00</span>
+									</div>
+									<div class="opening-item">
+										<span>Wednesday</span>
+										<span>8.00-17.00</span>
+									</div>
+									<div class="opening-item">
+										<span>Thursday</span>
+										<span>8.00-17.00</span>
+									</div>
+									<div class="opening-item">
+										<span>Friday</span>
+										<span>9.30-17.00</span>
+									</div>
+									<div class="opening-item">
+										<span>Saturday</span>
+										<span>9.30-15.00</span>
+									</div>
+								</div>
+								<a href="tel:0770555550">
+									<i class="zmdi zmdi-phone"></i>
+									+ (962) 770555550
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="post">
+							<div class="post-thumb">
+								<a
+									href="https://www.google.com/maps/search/شغف+كافيه+الاردن%E2%80%AD/@32.1446869,35.6149536,10z/data=!3m1!4b1">
+									<img src="images/post-thumb-16.jpg" alt="">
+								</a>
+							</div>
+							<div class="post-body">
+								<h5>
+									<a href="blog-single.html">
+										فروع شغف الأردن
+									</a>
+								</h5>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+
+		<!-- COFFEE MENU -->
+		<section id="MENU" class="coffee-menu section-primary pt-120 pb-120 set-bg" data-image-src="images/coffee-block-bg.jpg">
+			<div class="container">
+				<div class="coffee-wrapper">
+					<div style="height: auto;" class="inner">
+						<div class="section-header">
+							<h2 class="text-white">Taste of cafe</h2>
+							<span class="fifth-color">~ Choose your drink ~</span>
+						</div>
+						<div id="tabs">
+							<div class="row menu-navigation">
+								<div class="col-md-10 col-xl-6 mx-auto">
+									<ul id="category">
+
+									</ul>
+								</div>
+							</div>
+
+							<div class="row" id="all">
+								<div class="col-md-6 menu-holder left-40">
+									<a href="shop-single.html" class="menu-thumb">
+										<img src="images/coffee-thumb-1.png" alt="">
+									</a>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<div id="cart" class="section-primary shop-cart pt-120 pb-101" style="padding: 0;">
+			<div class="container">
+				<div id="tableProducts" class="woocommerce" style="text-align: center;">
+					
+					<form method="get" class="checkout woocommerce-checkout">
+						<div class="row" id="orderDetails">
+							<div class="col-md-12">
+								<div class="woocommerce-Customer-fields">
+									<div class="woocommerce-Customer-fields__field-wrapper">
+										<div class="woocommerce-additional-fields">
+
+											
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+
+						</div>
+					</form>
+					<div id="buy-btn"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="total"></div>
+
+
+
+
+
+
+
+		<div id="snackbar1">product added</div>
+
+
+	</main>
+
+	<footer>
+		<!-- FOOTER TOP -->
+		<div class="ft-top">
+			<div class="container">
+				<div class="ft-top-wrapper">
+
+					<div class="row justify-content-between justify-content-xl-start">
+						<div class="col-md-3  ft-col">
+							<div class="ft-logo">
+								<a href="index.html">
+									<img src="images/logo-3.png" alt="">
+								</a>
+							</div>
+							<h6>About Us</h6>
+							<p>هنا ينتهي شوق الانتظار و يبدأ شغف القهوة </p>
+						</div>
+
+						<div class="col-md-5  col-xl-4 offset-xl-1 ft-col">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d728137.0430000586!2d35.43891738354743!3d32.03016210544864!3m2!1i1024!2i768!4f13.1!2m1!1z2LTYutmBINmD2KfZgdmK2Ycg2KfZhNin2LHYr9mG4oCt!5e0!3m2!1sen!2sjo!4v1650746564417!5m2!1sen!2sjo"
+								width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+
+						<div class="col-md-3 col-xl-2  ml-xl-auto ft-col">
+
+							<div class="social">
+								<a href="#">
+									<i class="zmdi zmdi-twitter"></i>
+								</a>
+								<a href="#">
+									<i class="zmdi zmdi-facebook-box"></i>
+								</a>
+								<a href="#">
+									<i class="zmdi zmdi-linkedin"></i>
+								</a>
+								<a href="#">
+									<i class="zmdi zmdi-instagram"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ft-bot">
+			<div class="container">
+				@ 2022 ays
+			</div>
+		</div>
+	</footer>
+
+	<!-- CLICK TO TOP -->
+	<div class="click-to-top">
+		<span class="lnr lnr-arrow-up"></span>
+	</div>
+
+	<!-- jQUERY -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+	<!-- BOOTSTRAP JS -->
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+
+	<!-- Slider Revolution core JavaScript files -->
+	<script src="vendor/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="vendor/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+
+	<!-- Slider Revolution extension scripts. ONLY NEEDED FOR LOCAL TESTING -->
+	<script src="vendor/revolution-slider/js/revolution.extension.actions.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.carousel.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.kenburn.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.layeranimation.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.migration.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.navigation.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.parallax.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.slideanims.min.js"></script>
+	<script src="vendor/revolution-slider/js/revolution.extension.video.min.js"></script>
+	<!-- Add the Firebase and Cloud Firestore libraries to your app -->
+
+
+	<!-- MAP JS-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEmXgQ65zpsjsEAfNPP9mBAz-5zjnIZBw"></script>
+	<script src="js/theme-map.js"></script>
+
+	<!-- CAROUSEL JS -->
+	<script src="vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+	<!-- SWEET ALERT -->
+	<script src="js/sweetalert.min.js"></script>
+
+	<!-- SIDENAV MOBILE -->
+	<script src="vendor/hcmobilenav/hc-mobile-nav.js"></script>
+
+	<!-- LIGHT GALLERY -->
+	<script src="vendor/lightgallery/js/jquery.mousewheel.min.js"></script>
+	<script src="vendor/lightgallery/js/lightgallery-all.min.js"></script>
+
+	<!-- JQUERY UI -->
+	<script src="vendor/jquery-ui/jquery-ui.min.js"></script>
+
+	<!-- DATE-PICKER -->
+	<script src="vendor/date-picker/datepicker.js"></script>
+	<script src="vendor/date-picker/datepicker.en.js"></script>
+
+	<!-- JQUERY TIMEPICKER -->
+	<script src="vendor/jquery-timepicker-master/jquery.timepicker.min.js"></script>
+
+	<script src="js/main.min.js"></script>
+
+	<script src="./js/hajez.js"></script>
+
+	<script src="./js/whtsapp.js" id="MainScript"></script>
+	<script src="./js/user/user.js"></script>
+	<script src="./js/snakbar.js"></script>
+
+
+
+
+</body>
+
+</html>

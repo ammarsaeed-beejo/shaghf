@@ -11,6 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
 const itemsRef = firebase.firestore().collection("items");
+const categoriesRef = firebase.firestore().collection("categories").orderBy("placeInList");
 
 const params = new URLSearchParams(window.location.search);
 
@@ -119,11 +120,7 @@ var products = [
   // },
 ];
 var filterdItems = [];
-var categorys = [
-  { title: "all", data: "all" },
-  { title: "sweets", data: "sweets" },
-  { title: "coffee", data: "coffee" },
-  { title: "ice coffee", data: "ice coffee" },
+var categorties = [
 ];
 
 var firstcustomername = document.getElementById("Customer_first_name");
@@ -161,7 +158,7 @@ var firebaseOrder = [];
 
 var googlemapsurl = "...";
 
-var storage = firebase.storage(); // I am getting an error in this line
+var storage = firebase.storage();
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(showPosition);
@@ -183,7 +180,7 @@ function getCollectionlenght() {
     });
 }
 
-function buy() {
+async function buy() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
@@ -223,9 +220,24 @@ function buy() {
     tabelNumber: tabelNumber,
     time: dateTime.toDate(),
     order: firebaseOrder,
-    total: total(),
-    notes: Notes.value,
+    total: await total(),
+    coupon_code : cod.value,
+    notes: '',
   });
+
+  var x = document.getElementById("snackbar1");
+  x.innerText = "order placed successfully"
+  x.className = "show";
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+
+  setTimeout(() => {
+    window.open("https://web.facebook.com/shaghfjo");
+  } , 3000)
+  
+
+
   // window.open(url, "_blank").focus();
 }
 
@@ -261,7 +273,7 @@ async function checkDiscount(discount) {
   console.log("asdasds", discount);
 
   if (discount.length) {
-    let querySnapshot = await db
+    let querySnapshot = await firebase.firestore()
       .collection("discounts")
       .where("discountName", "==", discount)
       .get();
@@ -330,11 +342,11 @@ async function add(id) {
       </div>
       <input id="cod" type="text" placeholder="promo code" />
       <div id="btns">
-        <button id="confirm">
+        <button id="confirm" onclick="buy()">
           <h2>conﬁrm order</h2>
         </button>
-        <button id="additems">
-          <h2>add more items</h2>
+        <button id="additems"  >
+          <h2>add more items</h2>   
         </button>
       </div>
     </div>
@@ -343,8 +355,6 @@ async function add(id) {
       
        
        `;
-      buy_btn.innerHTML =
-        '<button  onclick="buy()" id="butadd" class="btn btn-primary">done</button>';
 
       con++;
       products[index].total = products[index].price * products[index].quantity;
@@ -432,7 +442,7 @@ async function updateCart() {
         </div>
         <input id="cod" type="text" placeholder="promo code" />
         <div id="btns">
-          <button id="confirm" onclick="buy()>
+          <button id="confirm" onclick="buy()">
             <h2>conﬁrm order</h2>
           </button>
           <button id="additems">
@@ -452,7 +462,6 @@ async function updateCart() {
     con = con + 1;
   }
   let value = await total();
-  console.log("99999999", value);
 
   if (value == 0) {
     document.getElementById("total").innerHTML = "";
@@ -526,6 +535,30 @@ async function getItemsfromFirebsae() {
   });
 }
 
+
+async function getCategoriesfromFirebsae() {
+
+  await categoriesRef.onSnapshot((snapshot) => {
+    const data = snapshot.docs.map((doc) => ({
+      title : doc.data()["name"],
+      data : doc.data()["name"],
+      placeInList : doc.data()["placeInList"],
+    }));
+      
+    for (let index = 0; index < data.length; index++) {
+      
+      
+      categorties.push({
+        "title" : data[index]["title"],
+        "data" : data[index]["data"],
+      })
+      
+    }
+  });
+
+}
+
+
 function filterItems(category) {
   if (category == "all") {
     filterdItems = products;
@@ -570,11 +603,11 @@ function renderItems() {
 }
 
 function renderCategory() {
-  for (let index = 0; index < categorys.length; index++) {
+  for (let index = 0; index < categorties.length; index++) {
     document.getElementById("category").innerHTML += `
-        <button id="filterItems" class="btn btn-primary shadow-none" type = "button" onclick = "filterItems('${categorys[index].data}')">
+        <button id="filterItems" class="btn btn-primary shadow-none" type = "button" onclick = "filterItems('${categorties[index].data}')">
         <li>
-            <span>${categorys[index].title}</span>
+            <span>${categorties[index].title}</span>
           </a>
         </li>
         </button>
@@ -588,4 +621,5 @@ setTimeout(() => {
   renderCategory();
 }, 1500);
 
+getCategoriesfromFirebsae();
 getItemsfromFirebsae();
